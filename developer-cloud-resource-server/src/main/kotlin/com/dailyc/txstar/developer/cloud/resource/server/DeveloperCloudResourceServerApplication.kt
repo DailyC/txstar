@@ -1,11 +1,11 @@
-package com.dailyc.txstar.developer.register
+package com.dailyc.txstar.developer.cloud.resource.server
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class DeveloperRegisterServerApplication
+class DeveloperCloudResourceServerApplication
 
 fun main(args: Array<String>) {
-    runApplication<DeveloperRegisterServerApplication>(*args)
+    runApplication<DeveloperCloudResourceServerApplication>(*args)
 }
