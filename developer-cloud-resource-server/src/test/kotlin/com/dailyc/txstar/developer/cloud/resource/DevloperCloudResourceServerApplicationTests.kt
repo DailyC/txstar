@@ -1,4 +1,4 @@
-package com.dailyc.txstar.devloper.cloud.resource
+package com.dailyc.txstar.developer.cloud.resource
 
 import org.junit.Test
 import org.junit.runner.RunWith

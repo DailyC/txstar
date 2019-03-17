@@ -1,4 +1,4 @@
-package com.dailyc.txstar.devloper.cloud.resource
+package com.dailyc.txstar.developer.cloud.resource
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
