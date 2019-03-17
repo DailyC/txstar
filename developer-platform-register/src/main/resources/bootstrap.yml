@@ -1,0 +1,22 @@
+server:
+  port: 9100
+spring:
+  application:
+    name: developer-platform-register
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://register.txstar.local:9100/eureka/
+
+# 监控组件
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS

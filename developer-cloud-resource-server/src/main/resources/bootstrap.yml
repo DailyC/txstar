@@ -1,11 +1,19 @@
-server.port:  9103
+server.port:  9201
 spring:
-  application.name: developer-platform-ops
-  security:
-    user:
-      name: "suadmin"
-      password: "suadmin123"
-# 监控组件
+  application:
+    name: developer-cloud-resource-server
+    zipkin:
+      base-url: http://trace.txstar.local:9104
+    sleuth:
+      sampler:
+        percentage: 1.0
+  cloud:
+    config:
+      label: master
+      discovery:
+        enabled: true
+        service-id: developer-platform-config
+
 management:
   endpoints:
     web:
@@ -16,9 +24,6 @@ management:
       show-details: ALWAYS
 # 注册中心
 eureka:
-  metadata-map:
-    user.name: "suadmin"
-    user.password: "suadmin123"
   instance:
     appname: ${spring.application.name}
     virtualHostName: ${spring.application.name}
