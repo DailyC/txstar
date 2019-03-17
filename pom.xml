@@ -19,13 +19,14 @@
     </developers>
 
     <modules>
-        <module>developer-platform-ops</module>
-        <module>developer-gateway-server</module>
+        <module>developer-cloud-gateway</module>
         <module>developer-cloud-resource-server</module>
-        <module>developer-platform-admin</module>
+        <module>developer-cloud-admin</module>
+
         <module>developer-platform-config</module>
         <module>developer-platform-register</module>
         <module>developer-platform-trace</module>
+        <module>developer-platform-ops</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

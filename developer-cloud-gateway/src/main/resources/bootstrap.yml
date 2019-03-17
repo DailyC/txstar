@@ -1,7 +1,7 @@
-server.port:  9203
+server.port:  9200
 spring:
   application:
-    name: developer-gateway-server
+    name: developer-cloud-gateway
     zipkin:
       base-url: http://trace.txstar.local:9104
     sleuth:

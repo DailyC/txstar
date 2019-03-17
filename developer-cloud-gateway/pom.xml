@@ -8,7 +8,7 @@
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>developer-gateway-server</artifactId>
+    <artifactId>developer-cloud-gateway</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>developer-gateway-server</name>
     <description>开发者平台-路由中心</description>
