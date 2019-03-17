@@ -19,7 +19,7 @@
     </developers>
 
     <modules>
-        <module>developer-register-server</module>
+        <module>developer-platform-ops</module>
         <module>developer-gateway-server</module>
         <module>developer-cloud-resource-server</module>
     </modules>
@@ -33,7 +33,9 @@
 
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <spring-boot.version>2.0.1.RELEASE</spring-boot.version>
+        <spring-boot-admin.version>2.0.1</spring-boot-admin.version>
         <guava.version>18.0</guava.version>
+        <zipkin.version>2.10.1</zipkin.version>
     </properties>
 
     <dependencyManagement>
@@ -41,7 +43,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.RELEASE</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -49,6 +51,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>2.0.1.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>${spring-boot-admin.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

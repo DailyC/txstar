@@ -1,4 +1,4 @@
-package com.dailyc.txstar.developer.cloud.resource
+package com.dailyc.txstar.developer.platform.ops
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(SpringRunner::class)
 @SpringBootTest
-class DevloperCloudResourceServerApplicationTests {
+class DeveloperPlatformOpsApplicationTests {
 
     @Test
     fun contextLoads() {
