@@ -15,9 +15,17 @@
 
     <properties>
         <java.version>1.8</java.version>
+
+        <developer-cloud-common-api.version>1.0.0-SNAPSHOT</developer-cloud-common-api.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.dailyc.txstar</groupId>
+            <artifactId>developer-cloud-common-api</artifactId>
+            <version>${developer-cloud-common-api.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
