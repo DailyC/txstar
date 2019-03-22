@@ -19,6 +19,7 @@
     </developers>
 
     <modules>
+        <module>developer-cloud-common-api</module>
         <module>developer-cloud-gateway</module>
         <module>developer-cloud-resource-server</module>
         <module>developer-cloud-admin</module>
