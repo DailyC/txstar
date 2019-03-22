@@ -22,6 +22,7 @@
         <module>developer-cloud-gateway</module>
         <module>developer-cloud-resource-server</module>
         <module>developer-cloud-admin</module>
+        <module>developer-cloud-content-server</module>
 
         <module>developer-platform-config</module>
         <module>developer-platform-register</module>
@@ -92,9 +93,7 @@
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>org.jetbrains.kotlin</groupId>
                     <artifactId>kotlin-maven-plugin</artifactId>
-                    <version>${kotlin.version}</version>
                     <executions>
                         <execution>
                             <id>compile</id>
@@ -102,24 +101,47 @@
                             <goals>
                                 <goal>compile</goal>
                             </goals>
+                            <configuration>
+                                <sourceDirs>
+                                    <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
+                                    <sourceDir>${project.basedir}/src/main/java</sourceDir>
+                                </sourceDirs>
+                            </configuration>
                         </execution>
                         <execution>
                             <id>test-compile</id>
-                            <phase>test-compile</phase>
-                            <goals>
-                                <goal>test-compile</goal>
-                            </goals>
+                            <goals> <goal>test-compile</goal> </goals>
+                            <configuration>
+                                <sourceDirs>
+                                    <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
+                                    <sourceDir>${project.basedir}/src/test/java</sourceDir>
+                                </sourceDirs>
+                            </configuration>
                         </execution>
                     </executions>
+                    <groupId>org.jetbrains.kotlin</groupId>
                     <configuration>
-                        <jvmTarget>${java.version}</jvmTarget>
-                        <javaParameters>true</javaParameters>
+                        <args>
+                            <arg>-Xjsr305=strict</arg>
+                        </args>
+                        <compilerPlugins>
+                            <plugin>spring</plugin>
+                        </compilerPlugins>
+                        <jvmTarget>1.8</jvmTarget>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.jetbrains.kotlin</groupId>
+                            <artifactId>kotlin-maven-allopen</artifactId>
+                            <version>${kotlin.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <configuration>
                         <parameters>true</parameters>
+                        <target>${java.version}</target>
                     </configuration>
                 </plugin>
                 <plugin>
