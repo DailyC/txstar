@@ -1,5 +1,6 @@
 package com.dailyc.txstar.developer.cloud.resource.server.domain.dictionary
 
+import org.springframework.data.domain.*
 import org.springframework.stereotype.Service
 
 /**
@@ -11,7 +12,17 @@ import org.springframework.stereotype.Service
  */
 @Service
 class DictionaryDS(
-         dictionaryRepository: DictionaryRepository
+         val dictionaryRepository: DictionaryRepository
 ) {
-    fun findByOwner(){}
+
+    /**
+     * 查询app下所有配置
+     * */
+    fun findAllByApp(appId : String, page: Pageable = PageRequest.of(0, 100)) : Page<Dictionary>{
+        val example = Example.of(Dictionary.ofApp(appId),
+                ExampleMatcher.matching()
+                        .withIgnoreCase("remark", "parent", "createdTime", "modifiedTime")
+        )
+        return dictionaryRepository.findAll(example, page)
+    }
 }

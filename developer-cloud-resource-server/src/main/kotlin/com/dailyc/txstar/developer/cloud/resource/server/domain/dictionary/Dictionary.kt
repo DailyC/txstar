@@ -13,38 +13,59 @@ import javax.persistence.Table
  * @version 17.8.0
  */
 @Entity
-@Table(name="cloud_resource_dictionary")
+@Table(name = "cloud_resource_dictionary")
 class Dictionary(
         /**
          * 字典所属者类型
          * 字典所属这有三种类型：
          * 平台、应用、开发者
          */
-        var cloudRole: CloudRole ?= CloudRole.DEVELOPER,
+        var cloudRole: CloudRole? = CloudRole.DEVELOPER,
         /**
          * 字典所有者，平台的所有者是 PLATFORM，应用自身的所有者是 APPLYCATION
          * */
-        var owner:String ?= null,
+        var owner: String? = null,
         /**
          * 字典所有系统编号，平台的编号是 PLATFORM
          * */
-        var appId:String ?= null,
+        var appId: String? = null,
         /**
          * 字典编码
          * */
-        var configName:String ?= null,
+        var configName: String? = null,
         /**
          * 字典值
          * */
-        var configValue:String ?= null,
+        var configValue: String? = null,
         /**
          * 备注
          * */
-        var remark:String ?= "",
+        var remark: String? = "",
         /**
          * 字典所属类（父级字典）
          * */
-        var parent: String ?= null
+        var parent: String? = null
 ) : DeleteEntity() {
+    companion object {
+        /**
+         * 构造app下所有的字典查询对象
+         * */
+        fun ofApp(appId : String): Dictionary =
+                Dictionary().apply {
+                    this.owner = CloudRole.APPLICATION.toString()
+                    this.cloudRole = CloudRole.APPLICATION
+                    this.appId = appId
+                }
 
+
+        /**
+         * 构造平台下所有的字典查询对象
+         * */
+        fun ofApp(): Dictionary =
+                Dictionary().apply {
+                    this.owner = CloudRole.PLATFORM.toString()
+                    this.cloudRole = CloudRole.PLATFORM
+                    this.appId = CloudRole.PLATFORM.toString()
+                }
+    }
 }
