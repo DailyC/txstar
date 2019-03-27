@@ -1,7 +1,7 @@
 package com.dailyc.txstar.developer.cloud.resource.server.domain.dictionary
 
-import com.dailyc.txstar.developer.cloud.api.domain.entity.BaseEntity
-import javax.persistence.Column
+import com.dailyc.txstar.developer.cloud.api.domain.cloud.CloudRole
+import com.dailyc.txstar.developer.cloud.api.domain.entity.DeleteEntity
 import javax.persistence.Entity
 import javax.persistence.Table
 
@@ -16,24 +16,35 @@ import javax.persistence.Table
 @Table(name="cloud_resource_dictionary")
 class Dictionary(
         /**
-         * 字典所有者，字典所有者分为系统字典和用户字典。
-         * 对于两者之间的关系： 用户字典一定要属于某个系统字典的类别之下
+         * 字典所属者类型
+         * 字典所属这有三种类型：
+         * 平台、应用、开发者
+         */
+        var cloudRole: CloudRole ?= CloudRole.DEVELOPER,
+        /**
+         * 字典所有者，平台的所有者是 PLATFORM，应用自身的所有者是 APPLYCATION
+         * */
+        var owner:String ?= null,
+        /**
+         * 字典所有系统编号，平台的编号是 PLATFORM
          * */
         var appId:String ?= null,
         /**
          * 字典编码
          * */
-        @Column(name = "config_name")
-        var type:String ?= null,
+        var configName:String ?= null,
         /**
          * 字典值
          * */
-        @Column(name = "config_value")
-        var value:String ?= null,
+        var configValue:String ?= null,
         /**
-         * 配置状态：DOWN-下架，UP-上架
+         * 备注
          * */
-        var status:String = "UP"
-) : BaseEntity() {
+        var remark:String ?= "",
+        /**
+         * 字典所属类（父级字典）
+         * */
+        var parent: String ?= null
+) : DeleteEntity() {
 
 }

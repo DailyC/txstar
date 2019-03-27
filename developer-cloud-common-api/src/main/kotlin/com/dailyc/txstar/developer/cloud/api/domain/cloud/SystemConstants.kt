@@ -1,4 +1,4 @@
-package com.dailyc.txstar.developer.cloud.api.domain.system
+package com.dailyc.txstar.developer.cloud.api.domain.cloud
 
 /**
  * 系统常量配置文件
